@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Заявка</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1 class="text-center">Оставить заявку на ведение</h1>
+
+    <section class="ftco-section bg-white ftco-slant ftco-slant-dark" id="section-contact">
+        <div class="container">
+          <div class="row">
+
+            <div class="col-md pr-md-5 mb-5">
+              <form>
+                <label required>Ваше имя</label>
+                <input type = "text" name = "name" required/>
+                <label required>Электронная почта</label>
+                <input type = "text" name = "email" required/>
+                <label required>Тема сообщения</label>
+                <input type = "text" name = "subject" required/>
+                <label required>Текст сообщения</label>
+                <textarea rows="8" name = "message" required></textarea>
+                <input type="checkbox" name="subscription" checked><label for="subscription">Политика конфиденциальности</label>
+                <button>Отправить заявку</button>
+              </form>
+              <script>
+                document.querySelector("button").addEventListener("click", e => {
+                  e.preventDefault()
+                  let arr = []
+                  document.querySelectorAll("input").forEach(Element => {
+                    let newArr = []
+                    newArr["name"] = Element.name
+                    newArr["value"] = Element.value
+                    arr.push(newArr)
+                  })
+                  let textarea = document.querySelector("textarea")
+                  let newArr = []
+                  newArr["name"] = textarea.name
+                    newArr["value"] = textarea.value
+                    arr.push(newArr)
+                  let string = ""
+                  arr.forEach(Element => {
+                    string += '${Element.name}: ${Element.value}\n'
+                  })
+                  alert(string)
+                })
+              </script>
+            </div>
+            </div>
+          </div>
+        </div>
+      </section>
+</body>
+</html>
